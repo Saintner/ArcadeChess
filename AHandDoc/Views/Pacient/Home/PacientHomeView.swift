@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct PacientHomeView: View {
+    private var appoinments = 15
     var body: some View {
         VStack{
-            Text("Hello, Pacient!")
+            List {
+                        Text("doctor A")
+                Text("doctor B")
+                Text("doctor C")
+                Text("doctor D")
+                    }
         }.navigationBarBackButtonHidden(true)
     }
 }
