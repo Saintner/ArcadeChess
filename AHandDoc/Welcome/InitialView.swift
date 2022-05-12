@@ -37,7 +37,7 @@ struct InitialView: View {
                 }
             }
             
-        }.setBackground()
+        }.setBackground().navigationTitle("Home").navigationBarHidden(true)
     }
 }
 

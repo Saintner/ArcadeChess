@@ -12,6 +12,10 @@
 		2632923A282BB6BC0019052D /* CommonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26329239282BB6BC0019052D /* CommonBackground.swift */; };
 		2632923C282BBF9D0019052D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632923B282BBF9D0019052D /* LoginView.swift */; };
 		2632923E282BD18E0019052D /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632923D282BD18E0019052D /* SignupView.swift */; };
+		26329244282C72210019052D /* ClinicRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26329243282C72210019052D /* ClinicRegistrationView.swift */; };
+		26329246282C72890019052D /* DoctorRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26329245282C72890019052D /* DoctorRegistrationView.swift */; };
+		26329248282C72990019052D /* PacientRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26329247282C72990019052D /* PacientRegistrationView.swift */; };
+		2643D448282C98EB009C4855 /* RegistrationSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643D447282C98EB009C4855 /* RegistrationSteps.swift */; };
 		267C21EE282B8F640072A04B /* AHandDocApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C21ED282B8F640072A04B /* AHandDocApp.swift */; };
 		267C21F2282B8F650072A04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267C21F1282B8F650072A04B /* Assets.xcassets */; };
 		267C21F5282B8F660072A04B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267C21F4282B8F660072A04B /* Preview Assets.xcassets */; };
@@ -46,6 +50,10 @@
 		26329239282BB6BC0019052D /* CommonBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBackground.swift; sourceTree = "<group>"; };
 		2632923B282BBF9D0019052D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2632923D282BD18E0019052D /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		26329243282C72210019052D /* ClinicRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicRegistrationView.swift; sourceTree = "<group>"; };
+		26329245282C72890019052D /* DoctorRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorRegistrationView.swift; sourceTree = "<group>"; };
+		26329247282C72990019052D /* PacientRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientRegistrationView.swift; sourceTree = "<group>"; };
+		2643D447282C98EB009C4855 /* RegistrationSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSteps.swift; sourceTree = "<group>"; };
 		267C21EA282B8F640072A04B /* AHandDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHandDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		267C21ED282B8F640072A04B /* AHandDocApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHandDocApp.swift; sourceTree = "<group>"; };
 		267C21F1282B8F650072A04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +103,39 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		2632923F282C713B0019052D /* Clinic */ = {
+			isa = PBXGroup;
+			children = (
+				2643D446282C9879009C4855 /* Registration */,
+			);
+			path = Clinic;
+			sourceTree = "<group>";
+		};
+		26329240282C71460019052D /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				26329245282C72890019052D /* DoctorRegistrationView.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		26329242282C715B0019052D /* Pacient */ = {
+			isa = PBXGroup;
+			children = (
+				26329247282C72990019052D /* PacientRegistrationView.swift */,
+			);
+			path = Pacient;
+			sourceTree = "<group>";
+		};
+		2643D446282C9879009C4855 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				26329243282C72210019052D /* ClinicRegistrationView.swift */,
+				2643D447282C98EB009C4855 /* RegistrationSteps.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		267C21E1282B8F640072A04B = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +159,9 @@
 		267C21EC282B8F640072A04B /* AHandDoc */ = {
 			isa = PBXGroup;
 			children = (
+				26329242282C715B0019052D /* Pacient */,
+				26329240282C71460019052D /* Doctor */,
+				2632923F282C713B0019052D /* Clinic */,
 				26329236282BB5610019052D /* Welcome */,
 				267C21ED282B8F640072A04B /* AHandDocApp.swift */,
 				267C21F1282B8F650072A04B /* Assets.xcassets */,
@@ -292,9 +336,13 @@
 				267C21F7282B8F660072A04B /* Persistence.swift in Sources */,
 				26329238282BB5910019052D /* InitialView.swift in Sources */,
 				2632923A282BB6BC0019052D /* CommonBackground.swift in Sources */,
+				26329248282C72990019052D /* PacientRegistrationView.swift in Sources */,
 				267C21EE282B8F640072A04B /* AHandDocApp.swift in Sources */,
 				2632923C282BBF9D0019052D /* LoginView.swift in Sources */,
 				267C21FA282B8F660072A04B /* AHandDoc.xcdatamodeld in Sources */,
+				26329246282C72890019052D /* DoctorRegistrationView.swift in Sources */,
+				26329244282C72210019052D /* ClinicRegistrationView.swift in Sources */,
+				2643D448282C98EB009C4855 /* RegistrationSteps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
