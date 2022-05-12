@@ -19,6 +19,7 @@
 		2643D44A282CA48F009C4855 /* ClinicHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643D449282CA48F009C4855 /* ClinicHome.swift */; };
 		2643D44E282CB7DB009C4855 /* DoctorMoreInfoRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643D44D282CB7DB009C4855 /* DoctorMoreInfoRegistrationView.swift */; };
 		2643D451282CB862009C4855 /* DoctorHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643D450282CB862009C4855 /* DoctorHome.swift */; };
+		2643D457282CBF45009C4855 /* PacientHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643D456282CBF45009C4855 /* PacientHomeView.swift */; };
 		267C21EE282B8F640072A04B /* AHandDocApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C21ED282B8F640072A04B /* AHandDocApp.swift */; };
 		267C21F2282B8F650072A04B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267C21F1282B8F650072A04B /* Assets.xcassets */; };
 		267C21F5282B8F660072A04B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267C21F4282B8F660072A04B /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		2643D449282CA48F009C4855 /* ClinicHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicHome.swift; sourceTree = "<group>"; };
 		2643D44D282CB7DB009C4855 /* DoctorMoreInfoRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorMoreInfoRegistrationView.swift; sourceTree = "<group>"; };
 		2643D450282CB862009C4855 /* DoctorHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHome.swift; sourceTree = "<group>"; };
+		2643D456282CBF45009C4855 /* PacientHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacientHomeView.swift; sourceTree = "<group>"; };
 		267C21EA282B8F640072A04B /* AHandDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AHandDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		267C21ED282B8F640072A04B /* AHandDocApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHandDocApp.swift; sourceTree = "<group>"; };
 		267C21F1282B8F650072A04B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,7 +132,8 @@
 		26329242282C715B0019052D /* Pacient */ = {
 			isa = PBXGroup;
 			children = (
-				26329247282C72990019052D /* PacientRegistrationView.swift */,
+				2643D455282CBEFE009C4855 /* Home */,
+				2643D452282CBE82009C4855 /* Registration */,
 			);
 			path = Pacient;
 			sourceTree = "<group>";
@@ -165,6 +168,22 @@
 			isa = PBXGroup;
 			children = (
 				2643D450282CB862009C4855 /* DoctorHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2643D452282CBE82009C4855 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				26329247282C72990019052D /* PacientRegistrationView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		2643D455282CBEFE009C4855 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2643D456282CBF45009C4855 /* PacientHomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -374,6 +393,7 @@
 				2632923C282BBF9D0019052D /* LoginView.swift in Sources */,
 				267C21FA282B8F660072A04B /* AHandDoc.xcdatamodeld in Sources */,
 				2643D44A282CA48F009C4855 /* ClinicHome.swift in Sources */,
+				2643D457282CBF45009C4855 /* PacientHomeView.swift in Sources */,
 				26329246282C72890019052D /* DoctorRegistrationView.swift in Sources */,
 				2643D44E282CB7DB009C4855 /* DoctorMoreInfoRegistrationView.swift in Sources */,
 				26329244282C72210019052D /* ClinicRegistrationView.swift in Sources */,

@@ -38,6 +38,7 @@ enum AppPageType: Any {
     case doctorMainHome
     case doctorMoreDetailRegistration
     case pacientRegistration
+    case pacientHome
 }
 
 
