@@ -22,7 +22,7 @@ extension View {
 struct ParentView: View {
     var body: some View {
         NavigationView {
-            InitialView().setBackground()
+            InitialView()
         }
     }
 }
