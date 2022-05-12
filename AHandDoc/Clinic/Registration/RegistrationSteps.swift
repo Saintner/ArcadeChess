@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct RegistrationSteps: View {
+    
+    @State private var address = ""
+    @State private var service = ""
+    @ObservedObject var page = AppPage()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Address")
+            TextField("Address", text: $address)
+            Text("Services")
+            TextField("Service", text:$service)
+            NavigationLink(destination: ClinicHome().setBackground(), tag: AppPageType.clinicMainHome, selection: $page.currentPage) { EmptyView() }
+            Button {
+                self.page.currentPage = .clinicMainHome
+            } label: {
+                Text("Continue").font(.title2)
+            }
+        }.navigationTitle("Add more Info")
     }
 }
 
