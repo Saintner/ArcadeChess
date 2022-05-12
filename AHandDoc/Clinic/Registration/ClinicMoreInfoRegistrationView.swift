@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegistrationSteps: View {
+struct ClinicMoreInfoRegistrationView: View {
     
     @State private var address = ""
     @State private var service = ""
@@ -31,6 +31,6 @@ struct RegistrationSteps: View {
 
 struct RegistrationSteps_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationSteps()
+        ClinicMoreInfoRegistrationView()
     }
 }

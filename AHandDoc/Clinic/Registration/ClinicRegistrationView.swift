@@ -28,10 +28,10 @@ struct ClinicRegistrationView: View {
                 .padding(.horizontal, 120)
             Spacer()
             VStack{
-                NavigationLink(destination:  RegistrationSteps().setBackground(), tag: AppPageType.moreDetailClinicRegistration,selection: $page.currentPage){ EmptyView() }
+                NavigationLink(destination:  ClinicMoreInfoRegistrationView().setBackground(), tag: AppPageType.clinicMoreDetailRegistration,selection: $page.currentPage){ EmptyView() }
                 Spacer()
                 Button {
-                    self.page.currentPage = .moreDetailClinicRegistration
+                    self.page.currentPage = .clinicMoreDetailRegistration
                 } label: {
                     Text("Continue").font(.title2)
                 }.padding(.bottom)

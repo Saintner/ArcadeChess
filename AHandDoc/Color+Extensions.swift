@@ -33,9 +33,11 @@ enum AppPageType: Any {
     case signup
     case clinicRegistration
     case clinicMainHome
-    case moreDetailClinicRegistration
-    case pacientRegistration
+    case clinicMoreDetailRegistration
     case doctorRegistration
+    case doctorMainHome
+    case doctorMoreDetailRegistration
+    case pacientRegistration
 }
 
 
