@@ -13,10 +13,10 @@ struct SignupView: View {
     var body: some View {
         VStack{
             Spacer()
-            NavigationLink(destination:  ClinicRegistrationView().setBackground(), tag: AppPageType.clinicRegistration,selection: $page.currentPage){ EmptyView() }
-            NavigationLink(destination:  PacientRegistrationView().setBackground(), tag: AppPageType.pacientRegistration
+            NavigationLink(destination:  ClinicRegistrationView(), tag: AppPageType.clinicRegistration,selection: $page.currentPage){ EmptyView() }
+            NavigationLink(destination:  PacientRegistrationView(), tag: AppPageType.pacientRegistration
                            ,selection: $page.currentPage){ EmptyView() }
-            NavigationLink(destination:  DoctorRegistrationView().setBackground(), tag: AppPageType.doctorRegistration,selection: $page.currentPage){ EmptyView() }
+            NavigationLink(destination:  DoctorRegistrationView(), tag: AppPageType.doctorRegistration,selection: $page.currentPage){ EmptyView() }
             Button {
                 self.page.currentPage  = .clinicRegistration
             } label: {

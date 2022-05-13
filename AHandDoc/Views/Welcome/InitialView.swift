@@ -11,26 +11,22 @@ struct InitialView: View {
     @ObservedObject var page = AppPage()
     var body: some View {
         VStack{
-            NavigationLink(destination:  LoginView(), tag: AppPageType.login,selection: $page.currentPage){ EmptyView() }
-            NavigationLink(destination:  SignupView(), tag: AppPageType.signup,selection: $page.currentPage){ EmptyView() }
             ZStack{
-                VStack{
-                    VStack{
-                        Image("initialbackground")
-                            .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                            .aspectRatio(contentMode: .fill)
-                            .padding(.top, -75.0)
-                            .frame(width: 600.0, height: 600.0)
-                            .ignoresSafeArea()
-                    }
-                    Text("Welcome").font(.largeTitle).fontWeight(.medium).foregroundColor(Color.mainBlue).padding(.top, -550.0)
-                    InitialButtonsBottomView(page: page)
-                    Spacer()
-                }
+                Image("initialbackground").backgroundImage(yOffset: -75)
+                Text("Welcome").font(.largeTitle).fontWeight(.medium).foregroundColor(Color.mainBlue)
+                    .offset(y: -20)
+                    .padding(.bottom, -20)
             }
+            VStack{
+                Spacer()
+                NavigationLink(destination:  LoginView(), tag: AppPageType.login,selection: $page.currentPage){ EmptyView() }
+                NavigationLink(destination:  SignupView(), tag: AppPageType.signup,selection: $page.currentPage){ EmptyView() }
+                InitialButtonsBottomView(page: page)
+                    .offset(y: -40)
+                    .padding(.bottom, 40.0)
             Spacer()
-            
-        }.navigationTitle("Home").navigationBarHidden(true)
+            }.navigationTitle("").navigationBarHidden(true)
+        }
     }
 }
 
@@ -43,11 +39,12 @@ struct InitialView_Previews: PreviewProvider {
 
 
 struct BaseButton: ViewModifier {
+    @Environment(\.isEnabled) var isEnabled
     func body(content: Content) -> some View {
         content
             .padding()
             .frame(width: 325.0, height: 65.0)
-            .foregroundColor(.white)
+            .foregroundColor(isEnabled ? .white : .gray)
             .font(.title2)
     }
 }
@@ -63,9 +60,10 @@ struct FilledButton: ViewModifier {
 }
 
 struct PrimaryFilledButton: ViewModifier {
+    @Environment(\.isEnabled) var isEnabled
     func body(content: Content) -> some View {
         content
-            .modifier(FilledButton(color: Color.mainBlue))
+            .modifier(FilledButton(color: isEnabled ? Color.mainBlue : Color.appGrey))
     }
 }
 
@@ -79,28 +77,19 @@ struct SecondaryFilledButton: ViewModifier {
 struct InitialButtonsBottomView : View {
     @ObservedObject var page = AppPage()
     var body: some View {
-        VStack {
-            
-            VStack{
                 Button {
                     self.page.currentPage  = .login
                 } label: {
                     Text("Log in")
+                        .modifier(PrimaryFilledButton())
                         
                 }
-                .modifier(PrimaryFilledButton())
-            }
-            Spacer()
-            VStack{
+                .padding(.bottom)
                 Button {
                     self.page.currentPage  = .signup
                 } label: {
                     Text("Sign Up")
+                        .modifier(SecondaryFilledButton())
                 }
-                .modifier(SecondaryFilledButton())
-            }
-        }
-        .padding(.top, -75.0)
-        .padding(.bottom, 20)
     }
 }
