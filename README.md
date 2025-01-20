@@ -1,2 +1,2 @@
-# AHandDoc-iOS
+# ArcadeChess
 Swift UI iOS App for medical Clinics management
