@@ -5,39 +5,44 @@
 //  Created by Eris Ramirez on 28/01/25.
 //
 
-protocol PieceProtocol: Hashable {}
+protocol PieceProtocol: Hashable {
+    var coordinates: Coordinates { get set }
+}
 struct Piece: PieceProtocol {
     var type: PieceType
-    var position: Position
+    var coordinates: Coordinates
     
-    func canMove(to destination: Position) -> Bool {
+    func canMove(to destination: Coordinates) -> Bool {
         var result = false
-        result = self.position != destination
-        let columnDiff = abs(position.column - destination.column)
-        let rowDiff = abs(position.row - destination.row)
+        result = self.coordinates != destination
+        let fileDiff = abs(coordinates.file.rawValue - destination.file.rawValue)
+        let rankDiff = abs(coordinates.rank.rawValue - destination.rank.rawValue)
         switch type {
         case .king:
-            result = columnDiff == 1 || rowDiff == 1
+            result = fileDiff == 1 || rankDiff == 1
         case .queen:
             break
         case .bishop:
-            result = position.column != destination.column && position.row != destination.row
-            result = columnDiff == rowDiff
+            result = coordinates.file != destination.file && coordinates.rank != destination.rank
+            result = fileDiff == rankDiff
         case .knight:
-            result = (columnDiff == 1 && rowDiff == 2) || (columnDiff == 2 && rowDiff == 1)
+            result = (fileDiff == 1 && rankDiff == 2) || (fileDiff == 2 && rankDiff == 1)
         case .rook:
-            result = position.column != destination.column && position.row == destination.row
-            result = position.column == destination.column && position.row != destination.row
+            result = coordinates.file != destination.file && coordinates.rank == destination.rank
+            result = coordinates.file == destination.file && coordinates.rank != destination.rank
         case .pawn:
-            result = columnDiff == 0 && rowDiff == 1
+            result = fileDiff == 0 && rankDiff == 1
         }
         return result
     }
 }
 
 extension Array where Element: PieceProtocol {
-    func check() -> Bool {
-        true
+    func checkEnemy(from a: Coordinates, to b: Coordinates) -> Bool {
+        let result = self.first { piece in
+            piece.coordinates == b
+        }
+        return result != nil
     }
 }
 
@@ -53,23 +58,23 @@ enum PieceType {
 extension Piece {
     
     static func initialPieces(for playerType: PlayerType) -> [Piece] {
-        let nonPawnRow = playerType == .white ? 8 : 1
-        let pawnsRow = playerType == .white ? 7 : 2
-        return [Piece(type: .rook, position: Position(row: nonPawnRow, column: 0)),
-                Piece(type: .knight, position: Position(row: nonPawnRow, column: 1)),
-                Piece(type: .bishop, position: Position(row: nonPawnRow, column: 2)),
-                Piece(type: .queen, position: Position(row: nonPawnRow, column: 3)),
-                Piece(type: .king, position: Position(row: nonPawnRow, column: 4)),
-                Piece(type: .bishop, position: Position(row: nonPawnRow, column: 5)),
-                Piece(type: .knight, position: Position(row: nonPawnRow, column: 6)),
-                Piece(type: .rook, position: Position(row: nonPawnRow, column: 7)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 0)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 1)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 2)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 3)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 4)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 5)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 6)),
-                Piece(type: .pawn, position: Position(row: pawnsRow, column: 7))]
+        let nonPawnRow: Rank = playerType == .white ? .eight : .one
+        let pawnsRow: Rank = playerType == .white ? .seven : .two
+        return [Piece(type: .rook, coordinates: Coordinates(rank: nonPawnRow, file: .a)),
+                Piece(type: .knight, coordinates: Coordinates(rank: nonPawnRow, file: .b)),
+                Piece(type: .bishop, coordinates: Coordinates(rank: nonPawnRow, file: .c)),
+                Piece(type: .queen, coordinates: Coordinates(rank: nonPawnRow, file: .d)),
+                Piece(type: .king, coordinates: Coordinates(rank: nonPawnRow, file: .e)),
+                Piece(type: .bishop, coordinates: Coordinates(rank: nonPawnRow, file: .f)),
+                Piece(type: .knight, coordinates: Coordinates(rank: nonPawnRow, file: .g)),
+                Piece(type: .rook, coordinates: Coordinates(rank: nonPawnRow, file: .h)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .a)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .b)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .c)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .d)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .e)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .f)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .g)),
+                Piece(type: .pawn, coordinates: Coordinates(rank: pawnsRow, file: .h))]
     }
 }
