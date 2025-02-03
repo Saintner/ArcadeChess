@@ -43,6 +43,10 @@ protocol PointIterable: CaseIterable, Hashable, RawRepresentable {
 }
 
 extension PointIterable where RawValue == Int {
+    init(value: Int) {
+        self.init(rawValue: value)!
+    }
+    
     var value: Int {
         return self.rawValue
     }
