@@ -7,13 +7,10 @@
 import SwiftUI
 
 struct Player {
-    var pieces: [Piece]
-    var type: PlayerType
-    var selectedPiece: Piece?
+    var type: PieceColor
     
-    init(_ type: PlayerType) {
+    init(_ type: PieceColor) {
         self.type = type
-        self.pieces = Piece.initialPieces(for: type)
     }
     
     func pieceResource(_ piece: Piece) -> ImageResource {
@@ -34,7 +31,7 @@ struct Player {
     }
 }
 
-enum PlayerType {
+enum PieceColor {
     case black
     case white
 }

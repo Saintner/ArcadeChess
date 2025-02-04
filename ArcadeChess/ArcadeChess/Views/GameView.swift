@@ -18,8 +18,8 @@ struct GameView: View {
                         Rectangle()
                             .fill((rank.value + file.value) % 2 == 0 ? Color.white : Color.brown)
                             .frame(width: game.board.squareSize, height: game.board.squareSize)
-                        if game.check(coordinates: Coordinates(rank: rank, file: file)) {
-                            game.pieceImage(for: Coordinates(rank: rank, file: file))
+                        if game.board.isDrawingPiece(for: rank, and: file) {
+                            Image(.piece(game.piece(for: rank, file: file))).resizable().frame(width: 35, height: 35)
                         }
                     }.onTapGesture {
                         game.selectPiece(at: Coordinates(rank: rank, file: file))
@@ -30,33 +30,4 @@ struct GameView: View {
     }
     .border(Color.gray, width: 2)
     }
-}
-
-struct Board {
-    let files = File.allCases
-    let ranks = Rank.allCases
-    let squareSize: CGFloat = 45 // Size of each square
-}
-
-protocol PointIterable: CaseIterable, Hashable, RawRepresentable {
-    
-}
-
-extension PointIterable where RawValue == Int {
-    init(value: Int) {
-        self.init(rawValue: value)!
-    }
-    
-    var value: Int {
-        return self.rawValue
-    }
-}
-
-enum Rank: Int, PointIterable {
-    case one, two, three, four, five, six, seven, eight
-
-}
-
-enum File: Int, PointIterable {
-    case a, b, c, d, e, f, g, h
 }
